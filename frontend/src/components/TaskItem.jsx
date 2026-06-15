@@ -11,7 +11,7 @@ function getStatusLabel(status) {
   }
 }
 
-function TaskItem({ task, onDelete }) {
+function TaskItem({ task, onDelete, onChangeStatus }) {
   return (
     <div className="task-item">
       <div className="task-status">[{getStatusLabel(task.status)}]</div>
@@ -23,6 +23,12 @@ function TaskItem({ task, onDelete }) {
         style={{ marginTop: "10px" }}
       >
         削除
+      </button>
+      <button
+        onClick={() => onChangeStatus(task.id)}
+        style={{ marginTop: "10px", marginLeft: "10px" }}
+      >
+        状態変更
       </button>
     </div>
   );
