@@ -21,6 +21,10 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const handleDeleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <main className="app">
       <h1 className="app-title">Task Manager</h1>
@@ -29,7 +33,10 @@ function App() {
 
       <hr style={{ margin: "20px 0" }} />
 
-      <TaskList tasks={tasks} />
+      <TaskList
+        tasks={tasks}
+        onDelete={handleDeleteTask}
+      />
     </main>
   );
 }

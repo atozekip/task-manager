@@ -11,13 +11,19 @@ function getStatusLabel(status) {
   }
 }
 
-function TaskItem({ task }) {
+function TaskItem({ task, onDelete }) {
   return (
     <div className="task-item">
       <div className="task-status">[{getStatusLabel(task.status)}]</div>
       <h2 className="task-title">{task.title}</h2>
       <p className="task-description">{task.description}</p>
       <p className="task-due-date">期限: {task.dueDate}</p>
+      <button
+        onClick={() => onDelete(task.id)}
+        style={{ marginTop: "10px" }}
+      >
+        削除
+      </button>
     </div>
   );
 }
